@@ -1,0 +1,29 @@
+{
+    "project_info": {
+      "project_number": "320978960474",
+      "project_id": "ems-v1-8c580",
+      "storage_bucket": "ems-v1-8c580.firebasestorage.app"
+    },
+    "client": [
+      {
+        "client_info": {
+          "mobilesdk_app_id": "1:320978960474:android:5b9f3df9718782800ed863",
+          "android_client_info": {
+            "package_name": "com.vad.ems"
+          }
+        },
+        "oauth_client": [],
+        "api_key": [
+          {
+            "current_key": "AIzaSyBaQqSbDQT1bWx2LAwgP79Nl9ZX1A4id60"
+          }
+        ],
+        "services": {
+          "appinvite_service": {
+            "other_platform_oauth_client": []
+          }
+        }
+      }
+    ],
+    "configuration_version": "1"
+  }
