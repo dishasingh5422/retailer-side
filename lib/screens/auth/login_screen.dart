@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/auth_provider.dart';
+import '../../providers/RetailerAuthProvider.dart';
 import 'package:ems_v1/widgets/auth/phone_input.dart';
 import 'package:ems_v1/screens/auth/otp_screen.dart';
 import 'signup_screen.dart';
@@ -10,7 +10,7 @@ class LoginScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authProvider = Provider.of<AuthProvider>(context);
+    final authProvider = Provider.of<RetailerAuthProvider>(context);
 
     return Scaffold(
       body: SafeArea(

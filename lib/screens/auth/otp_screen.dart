@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import '../../providers/auth_provider.dart';
+import '../../providers/RetailerAuthProvider.dart';
 import '../../widgets/auth/otp_input.dart';
 import 'package:ems_v1/main.dart'; // Import MainScreen
 
@@ -10,7 +10,7 @@ class OTPScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final authProvider = Provider.of<AuthProvider>(context);
+    final authProvider = Provider.of<RetailerAuthProvider>(context);
 
     return Scaffold(
       appBar: AppBar(

@@ -1,24 +1,23 @@
+// retailer_auth_provider.dart
 import 'package:flutter/foundation.dart';
 import 'package:ems_v1/services/auth_services.dart';
 
-class AuthProvider with ChangeNotifier {
+class RetailerAuthProvider with ChangeNotifier {
   final AuthService _authService = AuthService();
-  String _phoneNumber = '';
-  String _otp = '';
   String _name = '';
   String _address = '';
+  String _phoneNumber = '';
+  String _otp = '';
+  String _shopName = '';
+  String _shopAddress = '';
   bool _isLoading = false;
 
   String get phoneNumber => _phoneNumber;
   bool get isLoading => _isLoading;
+  
 
   void setPhone(String phone) {
-    _phoneNumber = '+91$phone'; // Adding country code for India
-    notifyListeners();
-  }
-
-  void setOTP(String otp) {
-    _otp = otp;
+    _phoneNumber = '+91$phone'; 
     notifyListeners();
   }
 
@@ -28,9 +27,19 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
   }
 
+  void setOTP(String otp) {
+    _otp = otp;
+    notifyListeners();
+  }
+
+  void setRetailerDetails(String shopName, String shopAddress) {
+    _shopName = shopName;
+    _shopAddress = shopAddress;
+    notifyListeners();
+  }
+
   bool isValidPhone() {
-    // Phone number should be 10 digits (excluding country code)
-    return _phoneNumber.length >= 13; // Including +91
+    return _phoneNumber.length >= 13; 
   }
 
   Future<void> sendOTP() async {
@@ -55,8 +64,8 @@ class AuthProvider with ChangeNotifier {
     notifyListeners();
     try {
       final result = await _authService.verifyOTP(_otp);
-      if (result && _name.isNotEmpty && _address.isNotEmpty) {
-        await _authService.saveUserDetails(_name, _address);
+      if (result && _shopName.isNotEmpty && _shopAddress.isNotEmpty) {
+        await _authService.saveRetailerDetails(_shopName, _shopAddress);
       }
       return result;
     } finally {
@@ -69,8 +78,8 @@ class AuthProvider with ChangeNotifier {
     await _authService.signOut();
     _phoneNumber = '';
     _otp = '';
-    _name = '';
-    _address = '';
+    _shopName = '';
+    _shopAddress = '';
     notifyListeners();
   }
 }
